@@ -1,0 +1,50 @@
+#Configuration to benchmark PLMs on all RE datasets in BLURB for 3 100 example seeds
+project: few-shot-bioIE
+program: main_pipeline.py
+method: grid
+parameters:
+  #Whether a new few-shot subset should be created
+  create_subset:
+    values: [True]
+  #Number of examples in few-shot subset
+  num_samples:
+    values: [100]
+  #Seeds to use for subset sampling
+  subset_seed:
+    values: [42,33,21]
+  #Strategy for sampling subset ('natural' or 'balanced' over classes)
+  subset_strategy:
+    values: ['balanced']
+  #If create_subset is False, a subset number must be specified
+  subset_num:
+    values: [None]
+  #Dataset names to evaluate over using this sweep
+  data_name:
+    values: ['DDI','chemprot','gad']
+  #Task name
+  task:
+    values: ['RE']
+  #Number of test examples to use for GPT-3
+  num_test_samples:
+    values: [250]
+  #List of GPUs available for the sweep
+  available_gpus:
+    values: [[3]]
+  #Flag to run PLM hyperparameter sweep
+  test_plms:
+    values: [True]
+  #Flag to computer metrics for PLMs after hyperparameter sweep
+  evaluate_plms:
+    values: [True]
+  #PLM hyperparameter tuning configuration files ids to loop over (if benchmarking many PLMs over the same hyperparameters)
+  plm_config_num:
+    values: [7,8,9,10,11]
+  #Flag to run a grid search apart from cross-validation for comparison.
+  grid:
+    values: [False]
+  #Flag to run benchmarking on GPT-3 in-context learning
+  test_gpt3:
+    values: [False]
+  #GPT-3 prompt selection configuration files ids to loop over
+  gpt3_config_num:
+    values: [1]

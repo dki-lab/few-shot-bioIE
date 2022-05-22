@@ -1,0 +1,27 @@
+#RE configuration for running GPT-3 in-context on the GAD dataset
+overall_instructions: [' ','Determine if there is any interaction between the diseases and genes mentioned in the provided scientific article excerpts.']
+sent_intro: ['Sentence:','Scientific Article Excerpt:']
+retrieval_message: ["Gene: {}\nDisease: {}\nInteraction:","Based on the previous sentence, is there any interaction between gene {} and disease {}?"]
+in_context_size: [5]
+model: ['ada']
+sampling_strategy: ['roberta-large']
+fine_tuning: [False]
+random_seed: [42]
+max_tokens: [1]
+dataset: 'gad'
+calibration: [True]
+label_verbalizer: [{'0':'no',
+                  '1':'yes'}]
+pos_labels: [['1']]
+eval_params: ['overall_instructions',
+              'sent_intro',
+              'retrieval_message',
+              'in_context_size',
+              'model',
+              'calibration',
+              'sampling_strategy',
+              'fine_tuning',
+              'random_seed',
+              'max_tokens',
+              'label_verbalizer',
+              'pos_labels']

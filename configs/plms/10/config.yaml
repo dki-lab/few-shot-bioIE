@@ -1,0 +1,36 @@
+#RE Hyperparameter Sweep for BioBERT-base
+project: few-shot-bioIE
+program: run_re_cv.py
+method: grid
+metric:
+  name: eval_f1
+  goal: maximize
+parameters:
+  data_dir:
+    values: ['../data']
+  output_dir:
+    values: ['../outputs']
+  per_device_train_batch_size:
+    values: [16, 32]
+  per_device_eval_batch_size:
+    values: [32]
+  learning_rate:
+    values: [1e-5,2e-5,3e-5,5e-5]
+  num_train_epochs:
+    values: [25]
+  epoch_eval_period:
+    values: [5]
+  weight_decay:
+    values: [0.0,0.01,0.1]
+  warmup_ratio:
+    values: [0.0,0.06]
+  model_name:
+    values: ['dmis-lab/biobert-base-cased-v1.1']
+  evaluation_strategy:
+    values: ['no']
+  eval_params:
+    values: [['batch_size',
+             'learning_rate',
+             'epoch',
+             'weight_decay',
+             'warmup_ratio']]

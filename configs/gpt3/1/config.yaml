@@ -1,0 +1,31 @@
+#Example GPT-3 Configuration for the NER Task
+overall_instructions: [' ']
+sent_intro: ['Sentence:']
+retrieval_message: ["Drug 1: {}\nDrug 2: {}\nInteraction:","How do {} and {} interact according to the previous sentence? Which word best describes their interaction: advice, effect, mechanism, other or none? Interaction:"]
+in_context_size: [5]
+model: ['ada']
+sampling_strategy: ['roberta-large']
+fine_tuning: [False]
+random_seed: [42]
+max_tokens: [1]
+dataset: 'DDI'
+calibration: [True]
+label_verbalizer: [{'DDI-effect':'effect',
+                  'DDI-false':'none',
+                  'DDI-advise':'advice',
+                  'DDI-mechanism':'mechanism',
+                  'DDI-int':'other'
+                 }]
+pos_labels: [['DDI-effect','DDI-advise','DDI-mechanism','DDI-int']]
+eval_params: ['overall_instructions',
+              'sent_intro',
+              'retrieval_message',
+              'in_context_size',
+              'model',
+              'calibration',
+              'sampling_strategy',
+              'fine_tuning',
+              'random_seed',
+              'max_tokens',
+              'label_verbalizer',
+              'pos_labels']

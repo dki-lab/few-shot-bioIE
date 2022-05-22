@@ -1,0 +1,31 @@
+#RE configuration for running GPT-3 in-context on the ChemProt dataset
+overall_instructions: [' ','Classify the effect drugs have on the genes mentioned in the following scientific article excerpts.']
+sent_intro: ['Sentence:','Scientific Article Excerpt:']
+retrieval_message: ["Drug: {}\nGene: {}\nEffect:","What effect does the drug {} have on gene {} according to the previous sentence? Choose from the following: none, activator, inhibitor, agonist, antagonist or substrate. Effect:"]
+in_context_size: [5]
+model: ['ada']
+sampling_strategy: ['roberta-large']
+fine_tuning: [False]
+random_seed: [42]
+max_tokens: [1]
+dataset: 'chemprot'
+calibration: [True]
+label_verbalizer: [{'false':'none',
+                  'CPR:3':'activator',
+                  'CPR:4':'inhibitor',
+                  'CPR:5':'agonist',
+                  'CPR:6':'antagonist',
+                  'CPR:9':'substrate'}]
+pos_labels: [['CPR:4', 'CPR:6', 'CPR:5', 'CPR:9', 'CPR:3']]
+eval_params: ['overall_instructions',
+              'sent_intro',
+              'retrieval_message',
+              'in_context_size',
+              'model',
+              'calibration',
+              'sampling_strategy',
+              'fine_tuning',
+              'random_seed',
+              'max_tokens',
+              'label_verbalizer',
+              'pos_labels']

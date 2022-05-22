@@ -1,0 +1,24 @@
+#Example GPT-3 Configuration for the NER Task
+overall_instructions: [' ']
+sent_intro: ['Sentence:']
+retrieval_message: ['Diseases:']
+in_context_size: [5, 10]
+model: ['ada']
+sampling_strategy: ['roberta-large']
+fine_tuning: [False]
+random_seed: [42]
+logit_bias: [10]
+max_tokens: [30]
+sep: [', ']
+dataset: 'BC5CDR-disease'
+eval_params: ['overall_instructions',
+              'sent_intro',
+              'retrieval_message',
+              'in_context_size',
+              'model',
+              'sampling_strategy',
+              'fine_tuning',
+              'random_seed',
+              'logit_bias',
+              'max_tokens',
+              'sep']

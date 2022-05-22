@@ -1,0 +1,24 @@
+#NER configuration for running GPT-3 in-context on the BC5CDR-chem dataset
+overall_instructions: [' ','List the drugs mentioned in the following sentences.']
+sent_intro: ['Sentence:', 'Scientific Article Excerpt:']
+retrieval_message: ['Drugs:']
+in_context_size: [5, 10]
+model: ['ada']
+sampling_strategy: ['roberta-large']
+fine_tuning: [False]
+random_seed: [42]
+logit_bias: [10]
+max_tokens: [30]
+sep: [', ']
+dataset: 'BC5CDR-chem'
+eval_params: ['overall_instructions',
+              'sent_intro',
+              'retrieval_message',
+              'in_context_size',
+              'model',
+              'sampling_strategy',
+              'fine_tuning',
+              'random_seed',
+              'logit_bias',
+              'max_tokens',
+              'sep']
