@@ -141,7 +141,7 @@ be sure to first change the `model` field in the configuration files under
 largest GPT-3 model can be quite expensive). To carry out the benchmarking run 
 the following script:
 
-`CUDA_VISIBLE_DEVICES=$GPUS python benchmarking_gpt3_in_context.py`
+`CUDA_VISIBLE_DEVICES=$GPUS python benchmark_gpt3_in_context.py`
 
 ### Output Structure
 
